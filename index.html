@@ -1618,7 +1618,7 @@ function generateSharedHTML(){
     +'var _em={};_ex.forEach(function(i){_em[i.id]=i;});'
     +'var _mg=_ni.map(function(item){'
     +'var ex=_em[item.id];'
-    +'if(ex){return Object.assign({},item,{sales:ex.sales||[],restocks:ex.restocks||[],adjustments:ex.adjustments||[]});}'
+    +'if(ex){return Object.assign({},item,{stock:ex.stock,sales:ex.sales||[],restocks:ex.restocks||[],adjustments:ex.adjustments||[]});}'
     +'return item;'
     +'});'
     +'localStorage.setItem("shiire_items_v1",JSON.stringify(_mg));'
