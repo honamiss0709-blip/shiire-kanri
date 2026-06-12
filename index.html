@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1781246961300";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1781247273532";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -461,8 +461,8 @@ tr.row-new{
     <div class="mh"><h2>✅ 公開完了！</h2><button class="mc" style="width:44px;height:44px;font-size:22px" onclick="close_('mo-publish')">×</button></div>
     <div class="mb mb1col" style="text-align:center;gap:12px;padding-bottom:24px">
       <p style="font-size:13px;color:#666">QRコードをスキャンするか、URLをコピーして送ってください</p>
-      <img id="pub-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fhonamiss0709-blip.github.io%2Fshiire-kanri%2F" alt="QR" style="width:200px;height:200px;margin:0 auto;display:block;border-radius:8px;border:1px solid #e2e8f0">
-      <a id="pub-url" href="https://honamiss0709-blip.github.io/shiire-kanri/" target="_blank" style="display:block;word-break:break-all;color:#1e3a5f;font-weight:700;font-size:13px">https://honamiss0709-blip.github.io/shiire-kanri/</a>
+      <img id="pub-qr" src="" alt="QR" style="width:200px;height:200px;margin:0 auto;display:block;border-radius:8px;border:1px solid #e2e8f0">
+      <a id="pub-url" href="#" target="_blank" style="display:block;word-break:break-all;color:#1e3a5f;font-weight:700;font-size:13px"></a>
       <button class="btn bp" style="width:100%;margin-top:4px;padding:14px" onclick="navigator.clipboard.writeText(document.getElementById('pub-url').href).then(()=&gt;{alert('コピーしました！');close_('mo-publish');})">📋 URLをコピー</button>
       <button class="btn" style="width:100%;background:#f1f5f9;color:#475569;padding:14px" onclick="close_('mo-publish');openGithubSettings()">🔧 設定を変更</button>
       <button class="btn" style="width:100%;background:#e2e8f0;color:#475569;padding:14px;font-size:16px" onclick="close_('mo-publish')">✕ 閉じる</button>
@@ -1251,17 +1251,20 @@ function renderChartContent(tab){
 function importSharedData(ni,metaObj,ts){
   let esk=[];try{esk=JSON.parse(localStorage.getItem(SK)||'[]');}catch{}
   let eoc=[];try{eoc=JSON.parse(localStorage.getItem(OCK)||'[]');}catch{}
+  // 外注マージ: 外注側の在庫・販売記録を保持しつつ、管理者の新規補充分を在庫に加算する
   function merge(arr,ex){
     const m={};ex.forEach(i=>{m[i.id]=i;});
     return arr.map(item=>{
       const e=m[item.id];
-      const s=e!=null?e.stock:item.stock;
-      return Object.assign({},item,{stock:s,sales:e?e.sales||[]:item.sales||[],restocks:e?e.restocks||[]:item.restocks||[],adjustments:e?e.adjustments||[]:item.adjustments||[]});
+      if(!e)return Object.assign({},item); // 新商品は公開データそのまま
+      const seen={};(e.restocks||[]).forEach(r=>{seen[r.id]=1;});
+      const delta=(item.restocks||[]).filter(r=>!seen[r.id]).reduce((s,r)=>s+(r.qty||0),0);
+      return Object.assign({},item,{stock:(e.stock||0)+delta,sales:e.sales||[],restocks:item.restocks||[],adjustments:e.adjustments||[]});
     });
   }
   // 管理者データ(SK)は公開データで完全上書き（在庫・販売も最新化）
   localStorage.setItem(SK,JSON.stringify(ni));
-  // 外注データ(OCK)のみ端末側の在庫・販売記録を保持
+  // 外注データ(OCK)は外注側の記録を保持＋管理者の補充分を加算
   const ocFull=merge(ni,eoc.length?eoc:esk);
   localStorage.setItem(OCK,JSON.stringify(ocLight(ocFull)));
   localStorage.setItem(MK,JSON.stringify(metaObj));
@@ -1331,12 +1334,15 @@ function generateSharedHTML(embedData=true){
     +'var _ni=JSON.parse('+itemsJson+');'
     +'var _esk=[];try{_esk=JSON.parse(localStorage.getItem("shiire_items_v1")||"[]");}catch(e){}'
     +'var _eoc=[];try{_eoc=JSON.parse(localStorage.getItem("shiire_oc_items_v1")||"[]");}catch(e){}'
+    // 外注マージ: 外注側の在庫・販売記録を保持しつつ、管理者の新規補充分を在庫に加算
     +'function _merge(ni,ex_arr){'
     +'var em={};ex_arr.forEach(function(i){em[i.id]=i;});'
     +'return ni.map(function(item){'
     +'var ex=em[item.id];'
-    +'var s=ex!=null?ex.stock:item.stock;'
-    +'return Object.assign({},item,{stock:s,sales:ex?ex.sales||[]:item.sales||[],restocks:ex?ex.restocks||[]:item.restocks||[],adjustments:ex?ex.adjustments||[]:item.adjustments||[]});'
+    +'if(!ex)return Object.assign({},item);'
+    +'var seen={};(ex.restocks||[]).forEach(function(r){seen[r.id]=1;});'
+    +'var delta=(item.restocks||[]).filter(function(r){return!seen[r.id];}).reduce(function(s,r){return s+(r.qty||0);},0);'
+    +'return Object.assign({},item,{stock:(ex.stock||0)+delta,sales:ex.sales||[],restocks:item.restocks||[],adjustments:ex.adjustments||[]});'
     +'});}'
     // 管理者データ(SK)は公開データで完全上書き（在庫・販売も最新化）
     +'localStorage.setItem("shiire_items_v1",JSON.stringify(_ni));'
@@ -1469,18 +1475,48 @@ async function publishToGithub(silent=false){
       if(!pr.ok){const e=await pr.json();throw new Error(path+' 更新失敗: '+pr.status+' '+JSON.stringify(e));}
     }
 
-    // data.json を先に送信（HTMLキャッシュが古い端末でもデータだけは最新化できる）
-    if(btn)btn.textContent='📤 ②データ送信中…';
-    _step='②データ送信';
     const stamp=new Date().toLocaleString('ja-JP');
-    await ghPut('data.json',b64utf8(JSON.stringify({ts:Number(_lastExportTs),items,meta})),'データ更新 '+stamp);
 
-    if(btn)btn.textContent='📤 ③ページ送信中…';
-    _step='③ページ送信';
+    // 商品写真(base64)は別ファイルとしてアップロードし、データにはURLだけ入れる
+    // （iPhoneのlocalStorage容量制限対策: データが2.6MB→約30KBになる）
+    _step='②画像送信';
+    if(!ghConfig.imgHashes)ghConfig.imgHashes={};
+    function imgHash(s){let h=5381;for(let i=0;i<s.length;i+=997)h=((h*33)^s.charCodeAt(i))>>>0;return h.toString(36)+'_'+s.length;}
+    function imgFile(it){
+      const img=it.image||'';
+      const mime=img.slice(5,img.indexOf(';'));
+      const ext=mime.includes('png')?'png':mime.includes('webp')?'webp':'jpg';
+      return 'img/'+it.id+'.'+ext;
+    }
+    let upN=0;
+    for(const it of items){
+      const img=it.image||'';
+      if(!img.startsWith('data:'))continue;
+      const h=imgHash(img);
+      if(ghConfig.imgHashes[it.id]===h)continue;
+      upN++;
+      if(btn)btn.textContent='📤 ②画像送信中…('+upN+')';
+      await ghPut(imgFile(it),img.slice(img.indexOf(',')+1),'画像更新 '+stamp);
+      ghConfig.imgHashes[it.id]=h;
+      localStorage.setItem(GK,JSON.stringify(ghConfig));
+    }
+    // 公開用データ: base64画像をアップロード済みURLに置換
+    const pubItems=items.map(it=>{
+      const img=it.image||'';
+      return img.startsWith('data:')?Object.assign({},it,{image:imgFile(it)}):it;
+    });
+
+    // data.json を先に送信（HTMLキャッシュが古い端末でもデータだけは最新化できる）
+    if(btn)btn.textContent='📤 ③データ送信中…';
+    _step='③データ送信';
+    await ghPut('data.json',b64utf8(JSON.stringify({ts:Number(_lastExportTs),items:pubItems,meta})),'データ更新 '+stamp);
+
+    if(btn)btn.textContent='📤 ④ページ送信中…';
+    _step='④ページ送信';
     await ghPut('index.html',content,'仕入れ情報更新 '+stamp);
 
     // ts.jsonは最後に送信（これが新しければdata.jsonは必ず配信済み）
-    _step='④更新印送信';
+    _step='⑤更新印送信';
     await ghPut('ts.json',b64utf8(JSON.stringify({ts:Number(_lastExportTs)})),'更新印 '+stamp);
 
     // GitHub Pages を有効化（初回のみ）
