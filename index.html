@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1781845834267";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1781845867577";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -214,19 +214,19 @@ tr.row-new{
   <h1>仕入れ商品管理</h1>
   <span id="owner-label" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.25); letter-spacing: 0.5px;">管理者モード</span>
   <div class="hright">
-    <span class="ts" id="updated-at">最終更新: 2026/6/19 14:10:30</span>
+    <span class="ts" id="updated-at">最終更新: 2026/6/19 14:11:04</span>
     <button class="lock-btn" onclick="onLockClick()"><span id="licon">🔓</span><span id="llabel">ログアウト</span></button>
   </div>
 </header>
 
 <div class="summary">
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">330</div></div>
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">60</div></div>
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">110</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥244,585</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥125,506</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">331</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">61</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">109</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥234,785</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥119,989</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('margin')"><div class="card-label">平均利益率</div><div class="cv" id="s-margin">56.4%</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥179,721</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥182,839</div></div>
 </div>
 
 <div class="period-bar">
@@ -322,17 +322,17 @@ tr.row-new{
 </div>
 
 <!-- 販売記録 -->
-<div class="mo" id="mo-sell">
+<div class="mo open" id="mo-sell">
   <div class="modal sm380">
     <div class="mh"><h2>🛒 販売記録</h2><button class="mc" onclick="closeSell()">×</button></div>
     <div class="mb mb2col">
-      <div class="ib full" id="sell-info">「出品No.14」 現在の在庫: 1個</div>
+      <div class="ib full" id="sell-info">「出品No.6」 現在の在庫: 1個</div>
       <div class="f"><label>売れた日 *</label><input type="date" id="sell-date"></div>
       <div class="f"><label>売れた個数 *</label><input type="number" id="sell-qty" min="1" value="1" oninput="calcSellPrev()" max="1"></div>
       <div class="f full oo"><label>販売価格（円）<span style="font-size:10px;color:#94a3b8;margin-left:4px">毎回変更可</span></label><input type="number" id="sell-price" min="0" placeholder="0" oninput="calcSellPrev()"></div>
       <div class="f full oo" id="sell-prev-row" style="background: rgb(240, 253, 244); border-radius: 8px; padding: 10px 12px; border: 1px solid rgb(187, 247, 208);">
         <div style="font-size:12px;color:#666;margin-bottom:4px">この販売の利益</div>
-        <div id="sell-prev" style="font-weight: 700; font-size: 16px; color: rgb(22, 163, 74);">¥6,197 × 1個 = <span style="font-size:18px">¥6,197</span></div>
+        <div id="sell-prev" style="font-weight: 700; font-size: 16px; color: rgb(22, 163, 74);">¥5,517 × 1個 = <span style="font-size:18px">¥5,517</span></div>
       </div>
     </div>
     <div class="mf"><button class="btn be" onclick="closeSell()">キャンセル</button><button class="btn" style="background:#f1f5f9;color:#475569" onclick="var _id=sellId;closeSell();openHist(_id)">📋 履歴・修正</button><button class="bsold" style="height:38px;font-size:14px;border-radius:8px;padding:0 16px;touch-action:manipulation" onclick="doSell()">記録する</button></div>
@@ -342,10 +342,15 @@ tr.row-new{
 <!-- 販売履歴 -->
 <div class="mo" id="mo-hist">
   <div class="modal sm440">
-    <div class="mh"><h2 id="hist-title">販売履歴</h2><button class="mc" onclick="closeHist()">×</button></div>
+    <div class="mh"><h2 id="hist-title">📋 出品No.6 の販売履歴</h2><button class="mc" onclick="closeHist()">×</button></div>
     <div class="mb mb1col" style="gap:8px;padding-bottom:24px">
-      <div class="sbox" id="hist-sum"></div>
-      <div class="hl" id="hist-list"></div>
+      <div class="sbox" id="hist-sum">合計 <strong>1個</strong> 販売 ／ 売上: <strong>¥9,800</strong> ／ 利益: <strong style="color:#16a34a">¥5,517</strong></div>
+      <div class="hl" id="hist-list"><div class="hi">
+        <span class="hdate">2026-06-16</span><span class="hqty">1個</span>
+        
+        <span style="font-size:12px;color:#16a34a;margin-left:4px">¥5,517</span>
+        <button class="hdel" onclick="delSale('mp51x5kz2dabd5zkdwb','mqg7a3gvkyuxko46kim')">🗑</button>
+      </div></div>
     </div>
   </div>
 </div>
