@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1781849550759";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782182819307";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -214,7 +214,7 @@ tr.row-new{
   <h1>仕入れ商品管理</h1>
   <span id="owner-label" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.25); letter-spacing: 0.5px;">管理者モード</span>
   <div class="hright">
-    <span class="ts" id="updated-at">最終更新: 2026/6/19 15:12:27</span>
+    <span class="ts" id="updated-at">最終更新: 2026/5/27 9:35:32</span>
     <button class="lock-btn" onclick="onLockClick()"><span id="licon">🔓</span><span id="llabel">ログアウト</span></button>
   </div>
 </header>
@@ -279,12 +279,12 @@ tr.row-new{
 <!-- 商品追加・編集 -->
 <div class="mo" id="mo-item">
   <div class="modal">
-    <div class="mh"><h2 id="item-title">商品編集</h2><button class="mc" onclick="closeModal()">×</button></div>
+    <div class="mh"><h2 id="item-title">商品追加</h2><button class="mc" onclick="closeModal()">×</button></div>
     <div class="mb">
       <input type="file" id="f-image" accept="image/*" onchange="handleImg(this)">
       <div class="ua full" id="upload-area" onclick="document.getElementById('f-image').click()">
-        <div id="uh" class="uh" style="display: none;"><div style="font-size:28px;margin-bottom:6px">📷</div><strong>クリックまたはドラッグ</strong>で写真を追加<br><span style="font-size:11px">JPG・PNG・WEBP対応（自動縮小）</span></div>
-        <div id="pw" class="pw" style="display: inline-block;"><img id="pi" class="pi" src="https://assets.mercari-shops-static.com/-/large/plain/2JRkeRCfdbeFYBCBoKxhmE.jpg@jpg" alt=""><button class="pr" onclick="removeImg(event)">×</button></div>
+        <div id="uh" class="uh"><div style="font-size:28px;margin-bottom:6px">📷</div><strong>クリックまたはドラッグ</strong>で写真を追加<br><span style="font-size:11px">JPG・PNG・WEBP対応（自動縮小）</span></div>
+        <div id="pw" class="pw" style="display:none"><img id="pi" class="pi" src="" alt=""><button class="pr" onclick="removeImg(event)">×</button></div>
       </div>
       <div class="f full"><label>商品名 *</label><input type="text" id="f-name" placeholder="例: ○○ブランド Tシャツ Lサイズ"></div>
       <div class="f"><label>SKU</label><input type="text" id="f-sku" placeholder="例: SKU-001"></div>
@@ -293,9 +293,9 @@ tr.row-new{
       <div class="f"><label>販売価格（円）</label><input type="number" id="f-sell" min="0" placeholder="0" oninput="calcPrev()"></div>
       <div class="f"><label>送料（円）<span id="f-ship-hint" style="font-size:10px;color:#94a3b8;margin-left:4px">空欄=デフォルト</span></label><input type="number" id="f-ship" min="0" placeholder="185（デフォルト）" oninput="calcPrev()"></div>
       <div class="cr">
-        <div class="ci"><span>利益額</span><strong id="prev-p" style="color: rgb(22, 163, 74);">¥211</strong></div>
-        <div class="ci"><span>利益率</span><strong id="prev-m">48%</strong></div>
-        <div class="ci full" style="color:#888;font-size:11px" id="prev-note">手数料 ¥44（10%） ／ 送料 ¥185（デフォルト）</div>
+        <div class="ci"><span>利益額</span><strong id="prev-p" style="color: rgb(22, 163, 74);">¥354</strong></div>
+        <div class="ci"><span>利益率</span><strong id="prev-m">59.1%</strong></div>
+        <div class="ci full" style="color:#888;font-size:11px" id="prev-note">手数料 ¥60（10%） ／ 送料 ¥185（デフォルト）</div>
       </div>
       <div class="f"><label>仕入れた日</label><input type="date" id="f-pdate"></div>
       <div class="f"><label>在庫数</label><input type="number" id="f-stock" min="0" value="1"></div>
