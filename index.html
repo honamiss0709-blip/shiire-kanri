@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782253718390";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782255054494";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -214,19 +214,19 @@ tr.row-new{
   <h1>仕入れ商品管理</h1>
   <span id="owner-label" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.25); letter-spacing: 0.5px;">管理者モード</span>
   <div class="hright">
-    <span class="ts" id="updated-at">最終更新: 2026/6/24 7:28:35</span>
+    <span class="ts" id="updated-at">最終更新: 2026/6/24 7:50:51</span>
     <button class="lock-btn" onclick="onLockClick()"><span id="licon">🔓</span><span id="llabel">ログアウト</span></button>
   </div>
 </header>
 
 <div class="summary">
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">290</div></div>
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">53</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">299</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">54</div></div>
   <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">137</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥300,770</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥155,189</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('margin')"><div class="card-label">平均利益率</div><div class="cv" id="s-margin">57.4%</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥172,581</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥174,471</div></div>
 </div>
 
 <div class="period-bar">
@@ -326,13 +326,13 @@ tr.row-new{
   <div class="modal sm380">
     <div class="mh"><h2>🛒 販売記録</h2><button class="mc" onclick="closeSell()">×</button></div>
     <div class="mb mb2col">
-      <div class="ib full" id="sell-info">「ゴルフティ蛍光色 12本セット」 現在の在庫: 10個</div>
+      <div class="ib full" id="sell-info"></div>
       <div class="f"><label>売れた日 *</label><input type="date" id="sell-date"></div>
-      <div class="f"><label>売れた個数 *</label><input type="number" id="sell-qty" min="1" value="1" oninput="calcSellPrev()" max="10"></div>
+      <div class="f"><label>売れた個数 *</label><input type="number" id="sell-qty" min="1" value="1" oninput="calcSellPrev()"></div>
       <div class="f full oo"><label>販売価格（円）<span style="font-size:10px;color:#94a3b8;margin-left:4px">毎回変更可</span></label><input type="number" id="sell-price" min="0" placeholder="0" oninput="calcSellPrev()"></div>
-      <div class="f full oo" id="sell-prev-row" style="background: rgb(240, 253, 244); border-radius: 8px; padding: 10px 12px; border: 1px solid rgb(187, 247, 208);">
+      <div class="f full oo" id="sell-prev-row" style="display:none;background:#f0fdf4;border-radius:8px;padding:10px 12px;border:1px solid #bbf7d0">
         <div style="font-size:12px;color:#666;margin-bottom:4px">この販売の利益</div>
-        <div id="sell-prev" style="font-weight: 700; font-size: 16px; color: rgb(22, 163, 74);">¥655 × 1個 = <span style="font-size:18px">¥655</span></div>
+        <div id="sell-prev" style="font-weight:700;font-size:16px"></div>
       </div>
     </div>
     <div class="mf"><button class="btn be" onclick="closeSell()">キャンセル</button><button class="btn" style="background:#f1f5f9;color:#475569" onclick="var _id=sellId;closeSell();openHist(_id)">📋 履歴・修正</button><button class="bsold" style="height:38px;font-size:14px;border-radius:8px;padding:0 16px;touch-action:manipulation" onclick="doSell()">記録する</button></div>
@@ -355,7 +355,7 @@ tr.row-new{
   <div class="modal sm400">
     <div class="mh"><h2>📦 在庫補充</h2><button class="mc" onclick="closeRestock()">×</button></div>
     <div class="mb mb2col">
-      <div class="ib full" id="restock-info"></div>
+      <div class="ib full" id="restock-info">「にじさんじ 佐伯イッテツ コスプレ」 現在の在庫: 0個 ／ 仕入れ値: ¥210</div>
       <div class="f"><label>仕入れ日 *</label><input type="date" id="rs-date"></div>
       <div class="f"><label>追加個数 *</label><input type="number" id="rs-qty" min="1" value="1"></div>
       <div class="f full"><label>今回の仕入れ値（円）— 空欄で前回と同じ</label><input type="number" id="rs-cost" min="0" placeholder="空欄=変更なし"></div>
@@ -365,11 +365,11 @@ tr.row-new{
 </div>
 
 <!-- 在庫調整 -->
-<div class="mo" id="mo-adjust">
+<div class="mo open" id="mo-adjust">
   <div class="modal sm380">
     <div class="mh"><h2>⚖️ 在庫調整</h2><button class="mc" onclick="closeAdjust()">×</button></div>
     <div class="mb mb1col" style="gap:12px;padding-bottom:24px">
-      <div class="ib full" id="adj-info"></div>
+      <div class="ib full" id="adj-info">「原始焼きスタンド 炉端焼き 五徳 魚焼き キャンプ BBQ 焚き火 ハンドメイド 鉄製」 現在の在庫: 17個</div>
       <div class="f full"><label>正しい在庫数 *</label><input type="number" id="adj-qty" min="0" oninput="adjDiff()"></div>
       <div class="adiff zero" id="adj-diff">変更なし</div>
       <div class="f full"><label>調整理由（任意）</label><input type="text" id="adj-reason" placeholder="例: 数え間違い、破損、盗難など"></div>
@@ -527,11 +527,15 @@ function loadOc(){
     const since=meta.periodStart||'';
     items=items.map(sk=>{
       const ex=ocMap.get(sk.id);
-      if(!ex) return Object.assign({},sk,{sales:[],restocks:[],adjustments:[]});
+      // 新商品（外注未保持）は管理者の在庫をそのまま採用
+      if(!ex) return Object.assign({},sk,{sales:[],restocks:sk.restocks||[],adjustments:[]});
       // 月次締め日より前の販売記録を除外
       const sales=(ex.sales||[]).filter(s=>!since||s.date>=since);
-      // 在庫は管理者(SK)の数字に完全連携。外注の販売記録のみ端末保持
-      return Object.assign({},sk,{sales,adjustments:ex.adjustments||[]});
+      // 在庫は外注端末の数字を保持。管理者の「新しい補充」分だけ加算する
+      const seen={};(ex.restocks||[]).forEach(r=>{seen[r.id]=1;});
+      const newR=(sk.restocks||[]).filter(r=>!seen[r.id]);
+      const delta=newR.reduce((s,r)=>s+(r.qty||0),0);
+      return Object.assign({},sk,{stock:(ex.stock||0)+delta,sales,restocks:(ex.restocks||[]).concat(newR),adjustments:ex.adjustments||[]});
     });
     // 軽量形式で書き戻し（月次締めフィルター反映）
     localStorage.setItem(OCK,JSON.stringify(ocLight(items)));
@@ -1252,14 +1256,16 @@ function renderChartContent(tab){
 function importSharedData(ni,metaObj,ts){
   let esk=[];try{esk=JSON.parse(localStorage.getItem(SK)||'[]');}catch{}
   let eoc=[];try{eoc=JSON.parse(localStorage.getItem(OCK)||'[]');}catch{}
-  // 外注マージ: 在庫は公開データ（管理者の数字）に統一し、外注自身の販売記録だけ端末に保持する
-  // → どの端末で見ても在庫数が同じになる
+  // 外注マージ: 在庫は外注端末の数字を保持しつつ、管理者の「新しい補充」分だけ加算する
   function merge(arr,ex){
     const m={};ex.forEach(i=>{m[i.id]=i;});
     return arr.map(item=>{
       const e=m[item.id];
-      if(!e)return Object.assign({},item);
-      return Object.assign({},item,{sales:e.sales||[],adjustments:e.adjustments||[]});
+      if(!e)return Object.assign({},item); // 新商品は管理者の在庫
+      const seen={};(e.restocks||[]).forEach(r=>{seen[r.id]=1;});
+      const newR=(item.restocks||[]).filter(r=>!seen[r.id]);
+      const delta=newR.reduce((s,r)=>s+(r.qty||0),0);
+      return Object.assign({},item,{stock:(e.stock||0)+delta,sales:e.sales||[],restocks:(e.restocks||[]).concat(newR),adjustments:e.adjustments||[]});
     });
   }
   // 管理者データ(SK)は公開データで完全上書き（在庫・販売も最新化）
@@ -1334,13 +1340,16 @@ function generateSharedHTML(embedData=true){
     +'var _ni=JSON.parse('+itemsJson+');'
     +'var _esk=[];try{_esk=JSON.parse(localStorage.getItem("shiire_items_v1")||"[]");}catch(e){}'
     +'var _eoc=[];try{_eoc=JSON.parse(localStorage.getItem("shiire_oc_items_v1")||"[]");}catch(e){}'
-    // 外注マージ: 在庫は公開データ（管理者の数字）に統一し、外注自身の販売記録だけ端末に保持
+    // 外注マージ: 在庫は外注端末の数字を保持しつつ、管理者の「新しい補充」分だけ加算
     +'function _merge(ni,ex_arr){'
     +'var em={};ex_arr.forEach(function(i){em[i.id]=i;});'
     +'return ni.map(function(item){'
     +'var ex=em[item.id];'
     +'if(!ex)return Object.assign({},item);'
-    +'return Object.assign({},item,{sales:ex.sales||[],adjustments:ex.adjustments||[]});'
+    +'var seen={};(ex.restocks||[]).forEach(function(r){seen[r.id]=1;});'
+    +'var newR=(item.restocks||[]).filter(function(r){return!seen[r.id];});'
+    +'var delta=newR.reduce(function(s,r){return s+(r.qty||0);},0);'
+    +'return Object.assign({},item,{stock:(ex.stock||0)+delta,sales:ex.sales||[],restocks:(ex.restocks||[]).concat(newR),adjustments:ex.adjustments||[]});'
     +'});}'
     // 管理者データ(SK)は公開データで完全上書き（在庫・販売も最新化）
     +'localStorage.setItem("shiire_items_v1",JSON.stringify(_ni));'
