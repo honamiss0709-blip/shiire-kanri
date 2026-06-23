@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782183204338";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782195690416";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -214,17 +214,17 @@ tr.row-new{
   <h1>仕入れ商品管理</h1>
   <span id="owner-label" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.25); letter-spacing: 0.5px;">管理者モード</span>
   <div class="hright">
-    <span class="ts" id="updated-at">最終更新: 2026/6/23 11:53:12</span>
+    <span class="ts" id="updated-at">最終更新: 2026/6/23 15:21:27</span>
     <button class="lock-btn" onclick="onLockClick()"><span id="licon">🔓</span><span id="llabel">ログアウト</span></button>
   </div>
 </header>
 
 <div class="summary">
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">315</div></div>
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">61</div></div>
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">117</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥251,258</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥129,209</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">323</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">60</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">119</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥252,138</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥129,631</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('margin')"><div class="card-label">平均利益率</div><div class="cv" id="s-margin">55.9%</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥178,713</div></div>
 </div>
@@ -326,13 +326,13 @@ tr.row-new{
   <div class="modal sm380">
     <div class="mh"><h2>🛒 販売記録</h2><button class="mc" onclick="closeSell()">×</button></div>
     <div class="mb mb2col">
-      <div class="ib full" id="sell-info"></div>
+      <div class="ib full" id="sell-info">「ピンク　A7サイズ クリアシール帳　リフィル20枚付き　シール交換　プレゼント　平成」 現在の在庫: 2個</div>
       <div class="f"><label>売れた日 *</label><input type="date" id="sell-date"></div>
-      <div class="f"><label>売れた個数 *</label><input type="number" id="sell-qty" min="1" value="1" oninput="calcSellPrev()"></div>
+      <div class="f"><label>売れた個数 *</label><input type="number" id="sell-qty" min="1" value="1" oninput="calcSellPrev()" max="2"></div>
       <div class="f full oo"><label>販売価格（円）<span style="font-size:10px;color:#94a3b8;margin-left:4px">毎回変更可</span></label><input type="number" id="sell-price" min="0" placeholder="0" oninput="calcSellPrev()"></div>
-      <div class="f full oo" id="sell-prev-row" style="display:none;background:#f0fdf4;border-radius:8px;padding:10px 12px;border:1px solid #bbf7d0">
+      <div class="f full oo" id="sell-prev-row" style="background: rgb(240, 253, 244); border-radius: 8px; padding: 10px 12px; border: 1px solid rgb(187, 247, 208);">
         <div style="font-size:12px;color:#666;margin-bottom:4px">この販売の利益</div>
-        <div id="sell-prev" style="font-weight:700;font-size:16px"></div>
+        <div id="sell-prev" style="font-weight: 700; font-size: 16px; color: rgb(22, 163, 74);">¥211 × 2個 = <span style="font-size:18px">¥422</span></div>
       </div>
     </div>
     <div class="mf"><button class="btn be" onclick="closeSell()">キャンセル</button><button class="btn" style="background:#f1f5f9;color:#475569" onclick="var _id=sellId;closeSell();openHist(_id)">📋 履歴・修正</button><button class="bsold" style="height:38px;font-size:14px;border-radius:8px;padding:0 16px;touch-action:manipulation" onclick="doSell()">記録する</button></div>
@@ -369,9 +369,9 @@ tr.row-new{
   <div class="modal sm380">
     <div class="mh"><h2>⚖️ 在庫調整</h2><button class="mc" onclick="closeAdjust()">×</button></div>
     <div class="mb mb1col" style="gap:12px;padding-bottom:24px">
-      <div class="ib full" id="adj-info">「シールファイル 30枚セット リフィル 台紙 透明 キッズ A6シール帳 交換」 現在の在庫: 12個</div>
+      <div class="ib full" id="adj-info"></div>
       <div class="f full"><label>正しい在庫数 *</label><input type="number" id="adj-qty" min="0" oninput="adjDiff()"></div>
-      <div class="adiff minus" id="adj-diff">-10個 減少</div>
+      <div class="adiff zero" id="adj-diff">変更なし</div>
       <div class="f full"><label>調整理由（任意）</label><input type="text" id="adj-reason" placeholder="例: 数え間違い、破損、盗難など"></div>
     </div>
     <div class="mf"><button class="btn be" onclick="closeAdjust()">キャンセル</button><button class="btn bp" onclick="doAdjust()">調整する</button></div>
@@ -402,9 +402,9 @@ tr.row-new{
 <!-- PIN -->
 <div class="mo" id="mo-pin">
   <div class="modal sm340">
-    <div class="mh"><h2 id="pin-title">🔑 PINを設定</h2><button class="mc" onclick="closePin()">×</button></div>
+    <div class="mh"><h2 id="pin-title">🔒 管理者ログイン</h2><button class="mc" onclick="closePin()">×</button></div>
     <div class="mb mb1col" style="gap:12px;padding-bottom:24px">
-      <p id="pin-desc" style="font-size:14px;color:#555;">はじめに管理者PINを設定してください（数字4〜8桁）。</p>
+      <p id="pin-desc" style="font-size:14px;color:#555;">管理者PINを入力してください。</p>
       <input type="password" class="pinput" id="pin-input" maxlength="8" placeholder="••••" inputmode="numeric" onkeydown="if(event.key==='Enter')doPin()">
       <div class="perr" id="pin-err"></div>
       <button class="btn bp" style="width:100%;height:44px;font-size:15px" onclick="doPin()">確認</button>
@@ -450,8 +450,8 @@ tr.row-new{
         <br><button style="margin-top:8px;font-size:11px;background:none;border:1px solid #dc2626;border-radius:4px;color:#dc2626;cursor:pointer;padding:3px 8px" onclick="resetGithubSite()">設定をリセット</button>
       </div>
     </div>
-    <div id="gh-test-result" style="display: block; padding: 8px 16px; font-size: 13px; border-radius: 6px; margin: 0px 16px 4px; background: rgb(240, 253, 244); color: rgb(20, 83, 45);">✅ 接続OK: @honamiss0709-blip として認証されています</div>
-    <div class="mf"><button class="btn be" onclick="closeGithubSettings()">キャンセル</button><button class="btn" id="gh-test-btn" style="background:#f1f5f9;color:#475569" onclick="testGithubToken()">接続テスト</button><button class="btn bp" id="gh-save-btn" onclick="saveGithubSettings()" disabled="">確認中…</button></div>
+    <div id="gh-test-result" style="display:none;padding:8px 16px;font-size:13px;border-radius:6px;margin:0 16px 4px"></div>
+    <div class="mf"><button class="btn be" onclick="closeGithubSettings()">キャンセル</button><button class="btn" id="gh-test-btn" style="background:#f1f5f9;color:#475569" onclick="testGithubToken()">接続テスト</button><button class="btn bp" id="gh-save-btn" onclick="saveGithubSettings()">保存して公開</button></div>
   </div>
 </div>
 
@@ -461,8 +461,8 @@ tr.row-new{
     <div class="mh"><h2>✅ 公開完了！</h2><button class="mc" style="width:44px;height:44px;font-size:22px" onclick="close_('mo-publish')">×</button></div>
     <div class="mb mb1col" style="text-align:center;gap:12px;padding-bottom:24px">
       <p style="font-size:13px;color:#666">QRコードをスキャンするか、URLをコピーして送ってください</p>
-      <img id="pub-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fhonamiss0709-blip.github.io%2Fshiire-kanri%2F" alt="QR" style="width:200px;height:200px;margin:0 auto;display:block;border-radius:8px;border:1px solid #e2e8f0">
-      <a id="pub-url" href="https://honamiss0709-blip.github.io/shiire-kanri/" target="_blank" style="display:block;word-break:break-all;color:#1e3a5f;font-weight:700;font-size:13px">https://honamiss0709-blip.github.io/shiire-kanri/</a>
+      <img id="pub-qr" src="" alt="QR" style="width:200px;height:200px;margin:0 auto;display:block;border-radius:8px;border:1px solid #e2e8f0">
+      <a id="pub-url" href="#" target="_blank" style="display:block;word-break:break-all;color:#1e3a5f;font-weight:700;font-size:13px"></a>
       <button class="btn bp" style="width:100%;margin-top:4px;padding:14px" onclick="navigator.clipboard.writeText(document.getElementById('pub-url').href).then(()=&gt;{alert('コピーしました！');close_('mo-publish');})">📋 URLをコピー</button>
       <button class="btn" style="width:100%;background:#f1f5f9;color:#475569;padding:14px" onclick="close_('mo-publish');openGithubSettings()">🔧 設定を変更</button>
       <button class="btn" style="width:100%;background:#e2e8f0;color:#475569;padding:14px;font-size:16px" onclick="close_('mo-publish')">✕ 閉じる</button>
@@ -1681,4 +1681,4 @@ if(location.protocol!=='file:'){
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncRemoteData(false);});
 }
 </script>
-<deepl-input-controller translate="no"></deepl-input-controller><div id="1p-menu-live-region" role="status" aria-live="polite" aria-atomic="true" aria-relevant="all" style="clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; overflow: hidden; position: fixed; top: 0px; left: 0px; white-space: nowrap; width: 1px; overflow-wrap: normal;">1Passwordメニューが利用できます。下矢印キーを押して選択してください。</div><div id="claude-agent-glow-border" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483646; opacity: 0; transition: opacity 0.3s ease-in-out;"><div id="claude-agent-glow-border-inner" style="position: absolute; inset: 0px; will-change: opacity; box-shadow: rgba(217, 119, 87, 0.7) 0px 0px 15px inset, rgba(217, 119, 87, 0.5) 0px 0px 25px inset, rgba(217, 119, 87, 0.2) 0px 0px 35px inset;"></div></div><div id="claude-phantom-cursor" aria-hidden="true" style="position: fixed; top: 0px; left: 0px; pointer-events: none; z-index: 2147483646; transform: translate3d(1103px, 634px, 0px); transition: transform 180ms cubic-bezier(0.2, 0, 0, 1); will-change: transform;"><svg id="claude-phantom-cursor-plain" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible;"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="white"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#111"></path></svg><svg id="claude-phantom-cursor-styled" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible; filter: drop-shadow(rgba(217, 119, 87, 0.9) 0px 0px 4px) drop-shadow(rgba(217, 119, 87, 0.45) 0px 0px 10px);"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="#D97757" stroke-width="3" stroke-linejoin="round" fill="#D97757"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#FAF9F5"></path></svg></div><div id="claude-agent-glow-border" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483646; opacity: 1; transition: opacity 0.3s ease-in-out;"><div id="claude-agent-glow-border-inner" style="position: absolute; inset: 0px; will-change: opacity; box-shadow: rgba(217, 119, 87, 0.7) 0px 0px 15px inset, rgba(217, 119, 87, 0.5) 0px 0px 25px inset, rgba(217, 119, 87, 0.2) 0px 0px 35px inset;"></div></div><div id="claude-phantom-cursor" aria-hidden="true" style="position: fixed; top: 0px; left: 0px; pointer-events: none; z-index: 2147483646; transform: translate3d(683px, 446px, 0px); transition: transform 180ms cubic-bezier(0.2, 0, 0, 1); will-change: transform;"><svg id="claude-phantom-cursor-plain" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible;"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="white"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#111"></path></svg><svg id="claude-phantom-cursor-styled" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible; filter: drop-shadow(rgba(217, 119, 87, 0.9) 0px 0px 4px) drop-shadow(rgba(217, 119, 87, 0.45) 0px 0px 10px);"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="#D97757" stroke-width="3" stroke-linejoin="round" fill="#D97757"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#FAF9F5"></path></svg></div><div id="1p-menu-live-region" role="status" aria-live="polite" aria-atomic="true" aria-relevant="all" style="clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; overflow: hidden; position: fixed; top: 0px; left: 0px; white-space: nowrap; width: 1px; overflow-wrap: normal;">1Passwordメニューが利用できます。下矢印キーを押して選択してください。</div></body></html>
+<deepl-input-controller translate="no"></deepl-input-controller><div id="1p-menu-live-region" role="status" aria-live="polite" aria-atomic="true" aria-relevant="all" style="clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; overflow: hidden; position: fixed; top: 0px; left: 0px; white-space: nowrap; width: 1px; overflow-wrap: normal;">1Passwordメニューが利用できます。下矢印キーを押して選択してください。</div><div id="claude-agent-glow-border" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483646; opacity: 0; transition: opacity 0.3s ease-in-out;"><div id="claude-agent-glow-border-inner" style="position: absolute; inset: 0px; will-change: opacity; box-shadow: rgba(217, 119, 87, 0.7) 0px 0px 15px inset, rgba(217, 119, 87, 0.5) 0px 0px 25px inset, rgba(217, 119, 87, 0.2) 0px 0px 35px inset;"></div></div><div id="claude-phantom-cursor" aria-hidden="true" style="position: fixed; top: 0px; left: 0px; pointer-events: none; z-index: 2147483646; transform: translate3d(1103px, 634px, 0px); transition: transform 180ms cubic-bezier(0.2, 0, 0, 1); will-change: transform;"><svg id="claude-phantom-cursor-plain" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible;"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="white" stroke-width="3" stroke-linejoin="round" fill="white"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#111"></path></svg><svg id="claude-phantom-cursor-styled" width="20" height="26" viewBox="0 0 20 26" style="position: absolute; top: 0px; left: 0px; overflow: visible; filter: drop-shadow(rgba(217, 119, 87, 0.9) 0px 0px 4px) drop-shadow(rgba(217, 119, 87, 0.45) 0px 0px 10px);"><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" stroke="#D97757" stroke-width="3" stroke-linejoin="round" fill="#D97757"></path><path d="M0 0 L0 18 L4.5 14 L7.5 21.5 L11 20 L8 13 L14 13 Z" fill="#FAF9F5"></path></svg></div></body></html>
