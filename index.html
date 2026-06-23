@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782196354535";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782196455874";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script>
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -214,19 +214,19 @@ tr.row-new{
   <h1>仕入れ商品管理</h1>
   <span id="owner-label" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.25); letter-spacing: 0.5px;">管理者モード</span>
   <div class="hright">
-    <span class="ts" id="updated-at">最終更新: 2026/6/23 15:32:31</span>
+    <span class="ts" id="updated-at">最終更新: 2026/6/23 15:34:12</span>
     <button class="lock-btn" onclick="onLockClick()"><span id="licon">🔓</span><span id="llabel">ログアウト</span></button>
   </div>
 </header>
 
 <div class="summary">
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">292</div></div>
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">55</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">287</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">54</div></div>
   <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">144</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥300,777</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥154,542</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('margin')"><div class="card-label">平均利益率</div><div class="cv" id="s-margin">55.9%</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥171,744</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('margin')"><div class="card-label">平均利益率</div><div class="cv" id="s-margin">56.1%</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥168,969</div></div>
 </div>
 
 <div class="period-bar">
@@ -418,8 +418,8 @@ tr.row-new{
     <div class="mh"><h2>📊 利益グラフ</h2><button class="mc" onclick="closeChart()">×</button></div>
     <div class="mb mb1col" style="gap:0;padding:0">
       <div style="display:flex;border-bottom:2px solid #e2e8f0;padding:0 20px;overflow-x:auto">
-        <button onclick="switchChartTab('margin')" id="ctab-margin" class="ctab active">📈 利益率</button>
-        <button onclick="switchChartTab('profit')" id="ctab-profit" class="ctab">💰 利益額</button>
+        <button onclick="switchChartTab('margin')" id="ctab-margin" class="ctab">📈 利益率</button>
+        <button onclick="switchChartTab('profit')" id="ctab-profit" class="ctab active">💰 利益額</button>
         <button onclick="switchChartTab('category')" id="ctab-category" class="ctab">🏷️ カテゴリ別</button>
         <button onclick="switchChartTab('pie-sales')" id="ctab-pie-sales" class="ctab">🥧 販売数</button>
         <button onclick="switchChartTab('pie-revenue')" id="ctab-pie-revenue" class="ctab">🥧 売上額</button>
@@ -473,7 +473,7 @@ tr.row-new{
 <!-- 内訳モーダル -->
 <div class="mo" id="mo-breakdown">
   <div class="modal" style="max-width:640px">
-    <div class="mh"><h2 id="bd-title">内訳</h2><button class="mc" onclick="close_('mo-breakdown')">×</button></div>
+    <div class="mh"><h2 id="bd-title">今月 売上 内訳</h2><button class="mc" onclick="close_('mo-breakdown')">×</button></div>
     <div class="mb" id="bd-body" style="max-height:65vh;overflow-y:auto;padding:0"></div>
   </div>
 </div>
@@ -482,9 +482,9 @@ tr.row-new{
 <div class="lb" id="lb" onclick="closeLB()"><span class="lbc">×</span><img id="lb-img" src="" alt=""></div>
 
 <!-- 削除確認 -->
-<div class="conf" id="conf">
+<div class="conf open" id="conf">
   <div class="confbox">
-    <strong>削除しますか？</strong><p id="conf-msg"></p>
+    <strong>削除しますか？</strong><p id="conf-msg">「A7 透明 シール帳 リフィル クリアバインダー 2SET」を削除します。この操作は元に戻せません。</p>
     <div class="btns">
       <button class="btn be" onclick="closeConf()">キャンセル</button>
       <button class="btn bd bsm" onclick="doDelete()">削除する</button>
