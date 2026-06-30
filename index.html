@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782783553911";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1782799697072";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -214,7 +214,7 @@ tr.row-new{
   <h1>仕入れ商品管理</h1>
   <span id="owner-label" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.25); letter-spacing: 0.5px;">管理者モード</span>
   <div class="hright">
-    <span class="ts" id="updated-at">最終更新: 2026/6/30 10:39:10</span>
+    <span class="ts" id="updated-at">最終更新: 2026/6/30 15:08:14</span>
     <button class="lock-btn" onclick="onLockClick()"><span id="licon">🔓</span><span id="llabel">ログアウト</span></button>
   </div>
 </header>
@@ -239,7 +239,7 @@ tr.row-new{
 
 <div class="controls">
   <input type="text" id="search" placeholder="商品名・SKU・メモで検索…">
-  <select id="filter-cat"><option value="">全カテゴリ</option><option value="その他">その他</option><option value="アウトドア">アウトドア</option><option value="アクセサリー">アクセサリー</option><option value="キーホルダー">キーホルダー</option><option value="コスプレ">コスプレ</option><option value="ゴルフ用品">ゴルフ用品</option><option value="文具">文具</option><option value="文具・電子機器">文具・電子機器</option><option value="転写紙">転写紙</option></select>
+  <select id="filter-cat"><option value="">全カテゴリ</option><option value="その他">その他</option><option value="アウトドア">アウトドア</option><option value="アクセサリー">アクセサリー</option><option value="キーホルダー">キーホルダー</option><option value="コスプレ">コスプレ</option><option value="ゴルフ用品">ゴルフ用品</option><option value="シルバージュエリー">シルバージュエリー</option><option value="文具">文具</option><option value="文具・電子機器">文具・電子機器</option><option value="転写紙">転写紙</option></select>
   <select id="filter-stock">
     <option value="">全在庫状態</option>
     <option value="instock">在庫あり</option>
@@ -279,23 +279,23 @@ tr.row-new{
 <!-- 商品追加・編集 -->
 <div class="mo" id="mo-item">
   <div class="modal">
-    <div class="mh"><h2 id="item-title">商品追加</h2><button class="mc" onclick="closeModal()">×</button></div>
+    <div class="mh"><h2 id="item-title">商品編集</h2><button class="mc" onclick="closeModal()">×</button></div>
     <div class="mb">
       <input type="file" id="f-image" accept="image/*" onchange="handleImg(this)">
       <div class="ua full" id="upload-area" onclick="document.getElementById('f-image').click()">
-        <div id="uh" class="uh"><div style="font-size:28px;margin-bottom:6px">📷</div><strong>クリックまたはドラッグ</strong>で写真を追加<br><span style="font-size:11px">JPG・PNG・WEBP対応（自動縮小）</span></div>
-        <div id="pw" class="pw" style="display:none"><img id="pi" class="pi" src="" alt=""><button class="pr" onclick="removeImg(event)">×</button></div>
+        <div id="uh" class="uh" style="display: none;"><div style="font-size:28px;margin-bottom:6px">📷</div><strong>クリックまたはドラッグ</strong>で写真を追加<br><span style="font-size:11px">JPG・PNG・WEBP対応（自動縮小）</span></div>
+        <div id="pw" class="pw" style="display: inline-block;"><img id="pi" class="pi" src="https://assets.mercari-shops-static.com/-/large/plain/2JRV4AKmigfWNwJMbpDHTK.jpg@jpg" alt=""><button class="pr" onclick="removeImg(event)">×</button></div>
       </div>
       <div class="f full"><label>商品名 *</label><input type="text" id="f-name" placeholder="例: ○○ブランド Tシャツ Lサイズ"></div>
       <div class="f"><label>SKU</label><input type="text" id="f-sku" placeholder="例: SKU-001"></div>
-      <div class="f"><label>カテゴリ</label><input type="text" id="f-cat" list="cat-list" placeholder="例: 衣類、雑貨"><datalist id="cat-list"><option value="その他"></option><option value="アウトドア"></option><option value="アクセサリー"></option><option value="キーホルダー"></option><option value="コスプレ"></option><option value="ゴルフ用品"></option><option value="文具"></option><option value="文具・電子機器"></option><option value="転写紙"></option></datalist></div>
+      <div class="f"><label>カテゴリ</label><input type="text" id="f-cat" list="cat-list" placeholder="例: 衣類、雑貨"><datalist id="cat-list"><option value="その他"></option><option value="アウトドア"></option><option value="アクセサリー"></option><option value="キーホルダー"></option><option value="コスプレ"></option><option value="ゴルフ用品"></option><option value="シルバージュエリー"></option><option value="文具"></option><option value="文具・電子機器"></option><option value="転写紙"></option></datalist></div>
       <div class="f"><label>仕入れ値（円）</label><input type="number" id="f-cost" min="0" placeholder="0" oninput="calcPrev()"></div>
       <div class="f"><label>販売価格（円）</label><input type="number" id="f-sell" min="0" placeholder="0" oninput="calcPrev()"></div>
       <div class="f"><label>送料（円）<span id="f-ship-hint" style="font-size:10px;color:#94a3b8;margin-left:4px">空欄=デフォルト</span></label><input type="number" id="f-ship" min="0" placeholder="185（デフォルト）" oninput="calcPrev()"></div>
       <div class="cr">
-        <div class="ci"><span>利益額</span><strong id="prev-p" style="color: rgb(22, 163, 74);">¥354</strong></div>
-        <div class="ci"><span>利益率</span><strong id="prev-m">59.1%</strong></div>
-        <div class="ci full" style="color:#888;font-size:11px" id="prev-note">手数料 ¥60（10%） ／ 送料 ¥185（デフォルト）</div>
+        <div class="ci"><span>利益額</span><strong id="prev-p" style="color: rgb(22, 163, 74);">¥6,197</strong></div>
+        <div class="ci"><span>利益率</span><strong id="prev-m">56.3%</strong></div>
+        <div class="ci full" style="color:#888;font-size:11px" id="prev-note">手数料 ¥1,100（10%） ／ 送料 ¥185（デフォルト）</div>
       </div>
       <div class="f"><label>仕入れた日</label><input type="date" id="f-pdate"></div>
       <div class="f"><label>在庫数</label><input type="number" id="f-stock" min="0" value="1"></div>
@@ -326,13 +326,13 @@ tr.row-new{
   <div class="modal sm380">
     <div class="mh"><h2>🛒 販売記録</h2><button class="mc" onclick="closeSell()">×</button></div>
     <div class="mb mb2col">
-      <div class="ib full" id="sell-info">「ゴルフティ　パステル20本」 現在の在庫: 5個</div>
+      <div class="ib full" id="sell-info">「大）50's 転写シート アイロンプリント 当時物 carhartt 山田蓮」 現在の在庫: 2個</div>
       <div class="f"><label>売れた日 *</label><input type="date" id="sell-date"></div>
-      <div class="f"><label>売れた個数 *</label><input type="number" id="sell-qty" min="1" value="1" oninput="calcSellPrev()" max="5"></div>
+      <div class="f"><label>売れた個数 *</label><input type="number" id="sell-qty" min="1" value="1" oninput="calcSellPrev()" max="2"></div>
       <div class="f full oo"><label>販売価格（円）<span style="font-size:10px;color:#94a3b8;margin-left:4px">毎回変更可</span></label><input type="number" id="sell-price" min="0" placeholder="0" oninput="calcSellPrev()"></div>
       <div class="f full oo" id="sell-prev-row" style="background: rgb(240, 253, 244); border-radius: 8px; padding: 10px 12px; border: 1px solid rgb(187, 247, 208);">
         <div style="font-size:12px;color:#666;margin-bottom:4px">この販売の利益</div>
-        <div id="sell-prev" style="font-weight: 700; font-size: 16px; color: rgb(22, 163, 74);">¥1,406 × 1個 = <span style="font-size:18px">¥1,406</span></div>
+        <div id="sell-prev" style="font-weight: 700; font-size: 16px; color: rgb(22, 163, 74);">¥1,697 × 1個 = <span style="font-size:18px">¥1,697</span></div>
       </div>
     </div>
     <div class="mf"><button class="btn be" onclick="closeSell()">キャンセル</button><button class="btn" style="background:#f1f5f9;color:#475569" onclick="var _id=sellId;closeSell();openHist(_id)">📋 履歴・修正</button><button class="bsold" style="height:38px;font-size:14px;border-radius:8px;padding:0 16px;touch-action:manipulation" onclick="doSell()">記録する</button></div>
@@ -418,11 +418,11 @@ tr.row-new{
     <div class="mh"><h2>📊 利益グラフ</h2><button class="mc" onclick="closeChart()">×</button></div>
     <div class="mb mb1col" style="gap:0;padding:0">
       <div style="display:flex;border-bottom:2px solid #e2e8f0;padding:0 20px;overflow-x:auto">
-        <button onclick="switchChartTab('margin')" id="ctab-margin" class="ctab active">📈 利益率</button>
-        <button onclick="switchChartTab('profit')" id="ctab-profit" class="ctab">💰 利益額</button>
+        <button onclick="switchChartTab('revenue')" id="ctab-revenue" class="ctab">🥧 売上額</button>
+        <button onclick="switchChartTab('sales')" id="ctab-sales" class="ctab">🥧 販売数</button>
+        <button onclick="switchChartTab('profit')" id="ctab-profit" class="ctab active">💰 利益額</button>
+        <button onclick="switchChartTab('margin')" id="ctab-margin" class="ctab">📈 利益率</button>
         <button onclick="switchChartTab('category')" id="ctab-category" class="ctab">🏷️ カテゴリ別</button>
-        <button onclick="switchChartTab('pie-sales')" id="ctab-pie-sales" class="ctab">🥧 販売数</button>
-        <button onclick="switchChartTab('pie-revenue')" id="ctab-pie-revenue" class="ctab">🥧 売上額</button>
       </div>
       <div id="chart-content" style="padding:20px;max-height:65vh;overflow-y:auto"></div>
     </div>
@@ -837,6 +837,47 @@ function doClose(){
 /* 過去記録 */
 function openArchiveModal(){renderArchive();open_('mo-archive');}
 function closeArchive(){close_('mo-archive');}
+function prodChartHTML(products,tab,size){
+  const colors=['#7c3aed','#2563eb','#16a34a','#ea580c','#f59e0b','#0891b2','#dc2626','#9333ea','#059669','#db2777','#94a3b8'];
+  const big=size>=240;
+  if(tab==='margin'){
+    const sorted=products.filter(p=>p.hasPrice).sort((a,b)=>b.margin-a.margin);
+    if(!sorted.length)return '<p style="color:#888;text-align:center;padding:20px">価格設定された商品がありません</p>';
+    const maxV=Math.max(...sorted.map(p=>Math.abs(p.margin)),1);
+    return '<div style="font-size:11px;color:#888;margin-bottom:10px">利益率が高い順（送料・手数料込み）</div>'+
+      sorted.map(p=>{const m=p.margin,w=Math.max(Math.abs(m)/maxV*100,2);
+        const col=m>=30?'#16a34a':m>=15?'#f59e0b':m>=0?'#94a3b8':'#dc2626';
+        return '<div class="cbar-row"><div class="cbar-label" title="'+esc(p.name)+'">'+esc(p.name.length>18?p.name.slice(0,18)+'…':p.name)+'</div><div class="cbar-track"><div class="cbar-fill" style="width:'+w+'%;background:'+col+'"><span class="cbar-val">'+m+'%</span></div></div></div>';
+      }).join('');
+  }
+  let label,getVal,isCat=false,isQty=(tab==='sales');
+  if(tab==='revenue'){label='売上額';getVal=p=>p.revenue;}
+  else if(tab==='sales'){label='販売数';getVal=p=>p.qty;}
+  else if(tab==='profit'){label='利益額';getVal=p=>p.profit;}
+  else if(tab==='category'){label='カテゴリ別売上';isCat=true;}
+  const fmt2=v=>isQty?v+'個':fmt(v);
+  let raw;
+  if(isCat){
+    const cats={};products.forEach(p=>{const c=p.category||'その他';cats[c]=(cats[c]||0)+(p.revenue||0);});
+    raw=Object.entries(cats).map(([n,v])=>({name:n,value:v})).filter(d=>d.value>0).sort((a,b)=>b.value-a.value);
+  }else{
+    const data=products.map(p=>({name:p.name,value:getVal(p)})).filter(d=>d.value>0).sort((a,b)=>b.value-a.value);
+    const top=data.slice(0,10),rest=data.slice(10);
+    if(rest.length)top.push({name:'その他 ('+rest.length+'商品)',value:rest.reduce((s,d)=>s+d.value,0)});
+    raw=top;
+  }
+  const total=raw.reduce((s,d)=>s+d.value,0);
+  if(!total)return '<p style="color:#888;text-align:center;padding:20px">販売実績がありません</p>';
+  const sz=big?240:180,cx=sz/2,cy=sz/2,r=big?80:70,sw=big?40:34,hole=big?52:38,circ=2*Math.PI*r;
+  let cum=0;
+  const segs=raw.map((d,i)=>{const pct=d.value/total,sa=cum*360,sl=pct*circ;cum+=pct;
+    return '<circle r="'+r+'" cx="'+cx+'" cy="'+cy+'" fill="none" stroke="'+colors[i%colors.length]+'" stroke-width="'+sw+'" stroke-dasharray="'+sl+' '+(circ-sl)+'" stroke-dashoffset="'+(circ/4)+'" transform="rotate('+sa+' '+cx+' '+cy+')"/>';
+  }).join('');
+  const legend=raw.map((d,i)=>'<div style="display:flex;align-items:center;gap:5px;margin-bottom:6px;font-size:12px"><div style="width:11px;height:11px;border-radius:2px;flex-shrink:0;background:'+colors[i%colors.length]+'"></div><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="'+esc(d.name)+'">'+esc(d.name.length>20?d.name.slice(0,20)+'…':d.name)+'</span><strong style="flex-shrink:0">'+fmt2(d.value)+'</strong><span style="color:#888;flex-shrink:0;margin-left:3px">'+Math.round(d.value/total*100)+'%</span></div>').join('');
+  return '<div style="font-size:11px;color:#888;margin-bottom:10px">'+label+' 内訳'+(isCat?'':'（上位10件）')+'</div><div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start"><svg width="'+sz+'" height="'+sz+'" viewBox="0 0 '+sz+' '+sz+'" style="flex-shrink:0">'+segs+'<circle r="'+hole+'" cx="'+cx+'" cy="'+cy+'" fill="white"/><text x="'+cx+'" y="'+(cy-(big?4:3))+'" text-anchor="middle" fill="#888" font-size="'+(big?10:9)+'">合計</text><text x="'+cx+'" y="'+(cy+(big?14:12))+'" text-anchor="middle" fill="#7c3aed" font-size="'+(big?14:12)+'" font-weight="bold">'+fmt2(total)+'</text></svg><div style="flex:1;min-width:140px;padding-top:4px">'+legend+'</div></div>';
+}
+function curProducts(){return items.filter(i=>i.sellPrice>0).map(i=>({name:i.name,category:i.category||'その他',qty:tSold(i),revenue:tRev(i),profit:tProfit(i),margin:margin(i),hasPrice:true}));}
+function arcProducts(a){return (a.items||[]).map(i=>{const sp=i.sellPrice||0,fee=Math.round(sp*feeRate()/100),ship=shipping();const mg=sp?Math.round((sp-(i.costPrice||0)-ship-fee)/sp*1000)/10:0;return {name:i.name,category:i.category||'その他',qty:i.soldQty||0,revenue:i.revenue||0,profit:i.profit||0,margin:mg,hasPrice:sp>0};});}
 function renderArchive(){
   const body=document.getElementById('archive-body');
   if(!archive.length){body.innerHTML='<div class="hemp" style="grid-column:1/-1">まだ締めた記録がありません</div>';return;}
@@ -853,11 +894,12 @@ function renderArchive(){
           <div class="astat"><span>合計利益</span><strong style="color:#16a34a">${fmt(a.totalProfit)}</strong></div>
           <div class="astat"><span>販売個数</span><strong>${a.soldQty}個</strong></div>
         </div>
-        <div style="display:flex;gap:8px;margin-bottom:10px;border-bottom:1px solid #e2e8f0;padding-bottom:6px">
-          <button class="btn bsm" style="background:#ede9fe;color:#7c3aed" onclick="renderArcPie(${idx},'sales')">🥧 販売数</button>
-          <button class="btn bsm" style="background:#eff6ff;color:#2563eb" onclick="renderArcPie(${idx},'revenue')">🥧 売上額</button>
-          <button class="btn bsm" style="background:#f0fdf4;color:#16a34a" onclick="renderArcPie(${idx},'profit')">💰 利益額</button>
-          <button class="btn bsm" style="background:#fef3c7;color:#92400e;border:1px solid #fcd34d" onclick="renderArcPie(${idx},'cat')">🏷️ カテゴリ</button>
+        <div style="display:flex;gap:8px;margin-bottom:10px;border-bottom:1px solid #e2e8f0;padding-bottom:6px;flex-wrap:wrap">
+          <button class="btn bsm arc-tab" data-t="revenue" style="background:#eff6ff;color:#2563eb" onclick="renderArcPie(${idx},'revenue')">🥧 売上額</button>
+          <button class="btn bsm arc-tab" data-t="sales" style="background:#ede9fe;color:#7c3aed" onclick="renderArcPie(${idx},'sales')">🥧 販売数</button>
+          <button class="btn bsm arc-tab" data-t="profit" style="background:#f0fdf4;color:#16a34a" onclick="renderArcPie(${idx},'profit')">💰 利益額</button>
+          <button class="btn bsm arc-tab" data-t="margin" style="background:#fef9c3;color:#854d0e" onclick="renderArcPie(${idx},'margin')">📈 利益率</button>
+          <button class="btn bsm arc-tab" data-t="category" style="background:#fef3c7;color:#92400e;border:1px solid #fcd34d" onclick="renderArcPie(${idx},'category')">🏷️ カテゴリ別</button>
         </div>
         <div id="arc-pie-${idx}" style="display:none;margin-bottom:12px"></div>
         <table class="atable">
@@ -870,52 +912,19 @@ function renderArchive(){
       </div>
     </div>`).join('');
 }
-function toggleArc(idx){document.getElementById('arc-'+idx).classList.toggle('open');}
+function toggleArc(idx){
+  const el=document.getElementById('arc-'+idx);
+  el.classList.toggle('open');
+  const pie=document.getElementById('arc-pie-'+idx);
+  if(el.classList.contains('open')&&pie&&!pie.dataset.loaded){renderArcPie(idx,'revenue');pie.dataset.loaded='1';}
+}
 function renderArcPie(idx,type){
   const a=archive[idx];if(!a)return;
   const el=document.getElementById('arc-pie-'+idx);
-  const colors=['#7c3aed','#2563eb','#16a34a','#ea580c','#f59e0b','#0891b2','#dc2626','#9333ea','#059669','#db2777','#94a3b8'];
-  let raw=[];
-  if(type==='cat'){
-    const cats={};
-    (a.items||[]).forEach(i=>{const c=i.category||'その他';if(!cats[c])cats[c]={v:0,n:0};cats[c].v+=i.revenue;cats[c].n++;});
-    raw=Object.entries(cats).map(([n,d])=>({name:n,value:d.v})).sort((a,b)=>b.value-a.value);
-  }else{
-    const getValue=i=>type==='sales'?i.soldQty:type==='profit'?i.profit:i.revenue;
-    const sorted=[...(a.items||[])].filter(i=>getValue(i)>0).sort((a,b)=>getValue(b)-getValue(a));
-    const topNorm=sorted.slice(0,10).map(i=>({name:i.name,value:getValue(i)}));
-    const restVal=sorted.slice(10).reduce((s,i)=>s+getValue(i),0);
-    if(restVal>0)topNorm.push({name:'その他 ('+(sorted.length-10)+'商品)',value:restVal});
-    raw=topNorm;
-  }
-  const total=raw.reduce((s,d)=>s+d.value,0);
-  if(!total){el.style.display='block';el.innerHTML='<p style="color:#999;font-size:12px;text-align:center;padding:8px">販売データなし</p>';return;}
-  const fmt2=v=>type==='sales'?v+'個':fmt(v);
-  const title=type==='sales'?'販売数':type==='revenue'?'売上額':type==='profit'?'利益額':'カテゴリ別売上';
-  const r=70,cx=90,cy=90,circ=2*Math.PI*r;
-  let cum=0;
-  const segs=raw.map((d,i)=>{const pct=d.value/total,startA=cum*360,segL=pct*circ;cum+=pct;
-    return `<circle r="${r}" cx="${cx}" cy="${cy}" fill="none" stroke="${colors[i%colors.length]}" stroke-width="34" stroke-dasharray="${segL} ${circ-segL}" stroke-dashoffset="${circ/4}" transform="rotate(${startA} ${cx} ${cy})"/>`;
-  }).join('');
-  const legend=raw.map((d,i)=>`<div style="display:flex;align-items:center;gap:5px;margin-bottom:5px;font-size:11px">
-    <div style="width:10px;height:10px;border-radius:2px;flex-shrink:0;background:${colors[i%colors.length]}"></div>
-    <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(d.name)}">${esc(d.name.length>18?d.name.slice(0,18)+'…':d.name)}</span>
-    <strong style="flex-shrink:0">${fmt2(d.value)}</strong>
-    <span style="color:#888;flex-shrink:0;margin-left:3px">${Math.round(d.value/total*100)}%</span>
-  </div>`).join('');
-
   el.style.display='block';
-  el.innerHTML=`<div style="background:#f8fafc;border-radius:8px;padding:12px">
-    <div style="font-size:11px;color:#888;margin-bottom:8px">${title} 内訳</div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
-      <svg width="180" height="180" viewBox="0 0 180 180" style="flex-shrink:0">${segs}
-        <circle r="38" cx="${cx}" cy="${cy}" fill="white"/>
-        <text x="${cx}" y="${cy-3}" text-anchor="middle" fill="#888" font-size="9">合計</text>
-        <text x="${cx}" y="${cy+12}" text-anchor="middle" fill="#7c3aed" font-size="12" font-weight="bold">${fmt2(total)}</text>
-      </svg>
-      <div style="flex:1;min-width:120px;padding-top:4px">${legend}</div>
-    </div>
-  </div>`;
+  el.innerHTML='<div style="background:#f8fafc;border-radius:8px;padding:12px">'+prodChartHTML(arcProducts(a),type,180)+'</div>';
+  const wrap=document.getElementById('arc-'+idx);
+  if(wrap)wrap.querySelectorAll('.arc-tab').forEach(b=>{b.style.outline=(b.dataset.t===type)?'2px solid #7c3aed':'none';});
 }
 function delArc(e,idx){
   e.stopPropagation();
@@ -1135,7 +1144,7 @@ function doDelete(){
 /* ===== 利益グラフ ===== */
 function openChart(){
   if(!isOwner)return;
-  switchChartTab('margin');
+  switchChartTab('revenue');
   document.getElementById('mo-chart').style.display='flex';
 }
 function closeChart(){document.getElementById('mo-chart').style.display='';}
@@ -1146,109 +1155,7 @@ function switchChartTab(tab){
 }
 function renderChartContent(tab){
   const el=document.getElementById('chart-content');
-  const src=items.filter(i=>i.sellPrice>0);
-  if(!src.length){el.innerHTML='<p style="color:#888;text-align:center;padding:40px">販売価格が設定された商品がありません</p>';return;}
-  if(tab==='margin'){
-    const sorted=[...src].sort((a,b)=>margin(b)-margin(a));
-    const maxV=Math.max(...sorted.map(i=>Math.abs(margin(i))),1);
-    el.innerHTML='<div style="font-size:11px;color:#888;margin-bottom:12px">利益率が高い順（送料・手数料込み）</div>'+
-      sorted.map(i=>{
-        const m=margin(i);
-        const w=Math.max(Math.abs(m)/maxV*100,2);
-        const col=m>=30?'#16a34a':m>=15?'#f59e0b':m>=0?'#94a3b8':'#dc2626';
-        return `<div class="cbar-row">
-          <div class="cbar-label" title="${esc(i.name)}">${esc(i.name.length>18?i.name.slice(0,18)+'…':i.name)}</div>
-          <div class="cbar-track"><div class="cbar-fill" style="width:${w}%;background:${col}"><span class="cbar-val">${m}%</span></div></div>
-        </div>`;
-      }).join('');
-  }
-  else if(tab==='profit'){
-    const sorted=[...src].filter(i=>tSold(i)>0).sort((a,b)=>tProfit(b)-tProfit(a));
-    if(!sorted.length){el.innerHTML+='<p style="color:#888;text-align:center;padding:20px">販売実績がありません</p>';return;}
-    const maxV=Math.max(...sorted.map(i=>Math.abs(tProfit(i))),1);
-    el.innerHTML='<div style="font-size:11px;color:#888;margin-bottom:12px">実際の販売利益合計が高い順（今月分）</div>'+
-      sorted.map(i=>{
-        const p=tProfit(i);
-        const w=Math.max(Math.abs(p)/maxV*100,2);
-        const col=p>=0?'#7c3aed':'#dc2626';
-        return `<div class="cbar-row">
-          <div class="cbar-label" title="${esc(i.name)}">${esc(i.name.length>18?i.name.slice(0,18)+'…':i.name)}</div>
-          <div class="cbar-track"><div class="cbar-fill" style="width:${w}%;background:${col}"><span class="cbar-val">${fmt(p)}</span></div></div>
-        </div>`;
-      }).join('');
-  }
-  else if(tab==='pie-sales'||tab==='pie-revenue'){
-    const isSales=tab==='pie-sales';
-    const getValue=i=>isSales?tSold(i):tRev(i);
-    const label=isSales?'販売数':'売上額';
-    const fmt2=v=>isSales?v+'個':fmt(v);
-    const data=[...items].map(i=>({name:i.name,value:getValue(i),cat:i.category||'その他'}))
-      .filter(d=>d.value>0).sort((a,b)=>b.value-a.value);
-    const top=data.slice(0,10);
-    const rest=data.slice(10);
-    if(rest.length>0)top.push({name:'その他 ('+rest.length+'商品)',value:rest.reduce((s,d)=>s+d.value,0),cat:''});
-    const total=top.reduce((s,d)=>s+d.value,0);
-    if(!total){el.innerHTML='<p style="color:#888;text-align:center;padding:40px">販売実績がありません</p>';return;}
-    const colors=['#7c3aed','#2563eb','#16a34a','#ea580c','#f59e0b','#0891b2','#dc2626','#9333ea','#059669','#db2777','#94a3b8'];
-    const r=80,cx=120,cy=120,circ=2*Math.PI*r;
-    let cum=0;
-    const segs=top.map((d,i)=>{
-      const pct=d.value/total;
-      const startA=cum*360,segL=pct*circ;
-      cum+=pct;
-      return `<circle r="${r}" cx="${cx}" cy="${cy}" fill="none" stroke="${colors[i%colors.length]}" stroke-width="40" stroke-dasharray="${segL} ${circ-segL}" stroke-dashoffset="${circ/4}" transform="rotate(${startA} ${cx} ${cy})"/>`;
-    }).join('');
-    const legend=top.map((d,i)=>`<div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;font-size:12px">
-      <div style="width:11px;height:11px;border-radius:2px;flex-shrink:0;background:${colors[i%colors.length]}"></div>
-      <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(d.name)}">${esc(d.name.length>20?d.name.slice(0,20)+'…':d.name)}</span>
-      <strong style="flex-shrink:0">${fmt2(d.value)}</strong>
-      <span style="color:#888;flex-shrink:0;margin-left:4px">${Math.round(d.value/total*100)}%</span>
-    </div>`).join('');
-    el.innerHTML=`<div style="font-size:11px;color:#888;margin-bottom:12px">商品別 ${label}内訳（今月 上位10件）</div>
-    <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
-      <svg width="240" height="240" viewBox="0 0 240 240" style="flex-shrink:0">
-        ${segs}
-        <circle r="52" cx="${cx}" cy="${cy}" fill="white"/>
-        <text x="${cx}" y="${cy-4}" text-anchor="middle" fill="#888" font-size="10">合計${label}</text>
-        <text x="${cx}" y="${cy+14}" text-anchor="middle" fill="#7c3aed" font-size="14" font-weight="bold">${fmt2(total)}</text>
-      </svg>
-      <div style="flex:1;min-width:150px;padding-top:4px">${legend}</div>
-    </div>`;
-  }
-  else if(tab==='category'){
-    const cats={};
-    src.forEach(i=>{
-      const c=i.category||'その他';
-      if(!cats[c])cats[c]={p:0,cnt:0};
-      cats[c].p+=tProfit(i);cats[c].cnt++;  // 売上ベース（サマリーと一致）
-    });
-    const data=Object.entries(cats).map(([n,v])=>({name:n,value:v.p,cnt:v.cnt})).sort((a,b)=>b.value-a.value);
-    const total=data.reduce((s,d)=>s+Math.max(d.value,0),0);
-    const colors=['#7c3aed','#2563eb','#16a34a','#ea580c','#f59e0b','#0891b2','#dc2626','#9333ea','#059669','#db2777'];
-    const r=80,cx=120,cy=120,circ=2*Math.PI*r;
-    let cum=0;
-    const segs=data.map((d,i)=>{
-      const pct=total>0?Math.max(d.value,0)/total:0;
-      const startA=cum*360,segL=pct*circ;
-      cum+=pct;
-      return `<circle r="${r}" cx="${cx}" cy="${cy}" fill="none" stroke="${colors[i%colors.length]}" stroke-width="40" stroke-dasharray="${segL} ${circ-segL}" stroke-dashoffset="${circ/4}" transform="rotate(${startA} ${cx} ${cy})"/>`;
-    }).join('');
-    const legend=data.map((d,i)=>`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:12px">
-      <div style="width:12px;height:12px;border-radius:3px;flex-shrink:0;background:${colors[i%colors.length]}"></div>
-      <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(d.name)}</span>
-      <strong style="flex-shrink:0">${fmt(d.value)}</strong>
-      <span style="color:#888;flex-shrink:0;margin-left:4px">${total>0?Math.round(Math.max(d.value,0)/total*100):0}%</span>
-    </div>`).join('');
-    el.innerHTML=`<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
-      <svg width="240" height="240" viewBox="0 0 240 240" style="flex-shrink:0">
-        ${total>0?segs:'<text x="120" y="125" text-anchor="middle" fill="#888" font-size="13">データなし</text>'}
-        <circle r="52" cx="${cx}" cy="${cy}" fill="white"/>
-        <text x="${cx}" y="${cy-4}" text-anchor="middle" fill="#888" font-size="10">合計利益</text>
-        <text x="${cx}" y="${cy+14}" text-anchor="middle" fill="#7c3aed" font-size="14" font-weight="bold">${fmt(total)}</text>
-      </svg>
-      <div style="flex:1;min-width:150px;padding-top:8px">${legend}</div>
-    </div>`;
-  }
+  el.innerHTML=prodChartHTML(curProducts(),tab,240);
 }
 
 /* ===== リモートデータ同期（data.json） ===== */
