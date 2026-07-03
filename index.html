@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1783059880255";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<html lang="ja"><head><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><script id="__share_init__">(function(){try{var _ts="1783059893515";var _sts=localStorage.getItem("shiire_export_ts");if(!_sts||Number(_ts)>Number(_sts)){localStorage.removeItem("shiire_pin_v1");}sessionStorage.removeItem("shiire_owner_session");}catch(e){}})();</script><script>if(location.protocol!=="file:"&&!location.search.includes("_t=")){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}window.addEventListener("pageshow",function(e){if(e.persisted&&location.protocol!=="file:"){location.replace(location.href.split("?")[0]+"?_t="+Date.now());}});</script><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
 <meta name="description" content="仕入れ商品管理ツール">
 <meta property="og:title" content="仕入れ商品管理">
 <meta property="og:description" content="仕入れ商品管理ツール">
@@ -214,7 +214,7 @@ tr.row-new{
   <h1>仕入れ商品管理</h1>
   <span id="owner-label" style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.25); letter-spacing: 0.5px;">管理者モード</span>
   <div class="hright">
-    <span class="ts" id="updated-at">最終更新: 2026/7/3 15:24:37</span>
+    <span class="ts" id="updated-at">最終更新: 2026/7/3 15:24:50</span>
     <button class="lock-btn" onclick="onLockClick()"><span id="licon">🔓</span><span id="llabel">ログアウト</span></button>
   </div>
 </header>
@@ -222,9 +222,9 @@ tr.row-new{
 <div class="summary">
   <div class="card" style="cursor:pointer" onclick="openBreakdown('stock')"><div class="card-label">在庫合計（個）</div><div class="cv" id="s-total">260</div></div>
   <div class="card" style="cursor:pointer" onclick="openBreakdown('instock')"><div class="card-label">在庫あり</div><div class="cv green" id="s-instock">51</div></div>
-  <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">176</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥396,170</div></div>
-  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥199,898</div></div>
+  <div class="card" style="cursor:pointer" onclick="openBreakdown('sold')"><div class="card-label">販売済み（個）</div><div class="cv orange" id="s-sold">0</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('revenue')"><div class="card-label">今月 合計売上</div><div class="cv purple" id="s-revenue">¥0</div></div>
+  <div class="card oc" style="cursor:pointer" onclick="openBreakdown('profit')"><div class="card-label">今月 合計利益</div><div class="cv green" id="s-profit">¥0</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('margin')"><div class="card-label">平均利益率</div><div class="cv" id="s-margin">57%</div></div>
   <div class="card oc" style="cursor:pointer" onclick="openBreakdown('stockval')"><div class="card-label">在庫金額合計</div><div class="cv orange" id="s-stockval">¥150,009</div></div>
 </div>
@@ -398,7 +398,12 @@ tr.row-new{
   <div class="modal sm460">
     <div class="mh"><h2>📅 月を締める</h2><button class="mc" onclick="closeClose()">×</button></div>
     <div class="mb mb1col" style="gap:12px;padding-bottom:24px">
-      <div class="csummary full" id="close-sum"></div>
+      <div class="csummary full" id="close-sum">
+    <h3>📊 今月の集計</h3>
+    <div class="crow"><span>集計期間</span><span>2026-06-03 〜 2026-07-03</span></div>
+    <div class="crow"><span>販売済み（個）</span><span>176個</span></div>
+    <div class="crow"><span>合計売上</span><span>¥396,170</span></div>
+    <div class="crow"><span>合計利益</span><span style="color:#16a34a">¥199,898</span></div></div>
       <div class="f full"><label>この月の名前（例: 2026年5月）</label><input type="text" id="close-label" placeholder="例: 2026年5月"></div>
       <div class="cwarn full">⚠️ 締めると今月の販売履歴がリセットされます。商品・在庫・価格はそのまま残ります。過去の記録はいつでも確認できます。</div>
     </div>
